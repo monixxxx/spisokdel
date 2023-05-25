@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Список дел</title>
+</head>
+<body>
+    <h1>Список дел</h1>
+    <ul>
+        {% for task in tasks %}
+            <li>
+                {{ task.title }}
+                <a href="{% url 'task-update' task.pk %}">Редактировать</a>
+                <a href="{% url 'task-delete' task.pk %}">Удалить</a>
+            </li>
+        {% empty %}
+            <li>Список дел пуст</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'task-create' %}">Добавить дело</a>
+</body>
+</html>
